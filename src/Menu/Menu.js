@@ -1,10 +1,11 @@
 import styled from "styled-components"
-import logoImg from "../../assets/logoImg.svg"
+import logoImg from "../../assets/logoImg.png"
+import Search from "./components/Search"
 
 const StyledMenu = styled.header`
   display: flex;
   flex-direction: row;
-  height: 56px;
+  height: 70px;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.backgroundLevel1 || "#FFFFFF"};
   border: 1px solid ${({ theme }) => theme.borderBase || "#e5e5e5"};
@@ -20,23 +21,26 @@ const StyledMenu = styled.header`
       max-width: 127px;
     }
     .text {
-      fill: ${({ theme }) => theme.textColorBase || "#222222"};
+      fill: ${({ theme }) => theme.textColorBase || "#222222"}
     }
   }
-`;
+`
 
-export default function Menu() {
+function Menu({ valueFilter, setValueFilter }) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
+      <Search valueFilter={valueFilter} setValueFilter={setValueFilter} />
     </StyledMenu>
-  );
+  )
 }
 
 function Logo() {
   return (
-    <img src={logoImg} className="logo" />
+    <img src={logoImg.src} className="logo" />
   )
 }
+
+export default Menu
