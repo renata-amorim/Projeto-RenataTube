@@ -1,5 +1,7 @@
+import React from "react"
 import styled from "styled-components"
 import logoImg from "../../assets/logoImg.png"
+import DarkModeSwitch from "./components/DarkModeSwitch"
 import Search from "./components/Search"
 
 const StyledMenu = styled.header`
@@ -33,6 +35,7 @@ function Menu({ valueFilter, setValueFilter }) {
         <Logo />
       </div>
       <Search valueFilter={valueFilter} setValueFilter={setValueFilter} />
+      <DarkModeSwitch />
     </StyledMenu>
   )
 }
